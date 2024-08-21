@@ -1,0 +1,10 @@
+server:
+    port: ${PORT:8989}
+spring:
+    rabbitmq:
+        # host: 127.0.0.1
+        host: rabbitmq-server
+        username: admin
+        password: admin
+        port: 5672
+        virtual-host: /

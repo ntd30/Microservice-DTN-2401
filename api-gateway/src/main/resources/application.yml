@@ -1,0 +1,30 @@
+spring:
+    cloud:
+        gateway:
+            discovery:
+                locator:
+                    enabled: true
+                    lower-case-service-id: true
+            routes:
+                - id: product-service
+                  uri: http://product-service:8080
+                  predicates:
+                    - Path=/products/**
+                    
+                - id: auth-service
+                  uri: http://auth-service:8888
+                  predicates:
+                    - Path=/auth/**
+
+                - id: load-balancer
+                  # uri: http://load-balancer:8800
+                  uri: http://172.20.0.1:8800
+                  predicates:
+                    - Path=/consummer-order/**
+# server:
+#     port: 8762
+# eureka:
+#     client:
+#         service-url:
+#             defaultZone: http://localhost:8761/eureka/
+

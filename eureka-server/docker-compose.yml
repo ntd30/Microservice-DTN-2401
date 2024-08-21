@@ -1,0 +1,16 @@
+services:
+  eureka-server:
+    image: eureka-server
+    container_name: eureka-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8761:8761"
+    networks:
+      - spring-microservice
+      
+networks:
+  spring-microservice:
+    external: true

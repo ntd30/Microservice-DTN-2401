@@ -1,0 +1,6 @@
+{
+    "productName": "I Phone 15",
+    "productCode": "i_phone_15",
+    "quantity": 1,
+    "price": 30000000
+}

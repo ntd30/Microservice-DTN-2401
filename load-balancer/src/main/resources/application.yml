@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    discovery:
+      client:
+        simple:
+          instances:
+            order-service:
+              # - uri: http://order-service:8081
+              # - uri: http://order-service:8082
+              - uri: http://localhost:8081
+              - uri: http://localhost:8082

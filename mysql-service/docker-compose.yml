@@ -1,0 +1,27 @@
+services:
+  mysql:
+    image: mysql_8_0_37
+    container_name: mysql_8_0_37
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+      args:
+        MYSQL_DATABASE: ${MYSQL_DATABASE}
+        MYSQL_USER: ${MYSQL_USER}
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "${MYSQL_PORT}:${MYSQL_PORT}"
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+    networks:
+      - spring-microservice
+      
+networks:
+  spring-microservice:
+    external: true
